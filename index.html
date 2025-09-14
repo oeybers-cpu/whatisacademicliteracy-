@@ -18,27 +18,27 @@
       --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
       --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
       --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
-      --primary: #2a5b9c; /* Darker blue */
-      --secondary: #1a7eb8; /* Darker medium blue */
-      --accent: #005f9b; /* Darker accent blue */
+      --primary: #2a5b9c;
+      --secondary: #1a7eb8;
+      --accent: #005f9b;
       --dark: #0a0a14;
       --darker: #050508;
-      --light: #f0f0f0;
+      --light: #ffffff; /* Changed to pure white for better contrast */
       --card-bg: rgba(20, 20, 30, 0.8);
-      --lighter-accent: #4a90e2; /* Muted light blue */
+      --lighter-accent: #4a90e2;
       --royal-blue: #4169E1;
-      --royal-blue-light: #5a78d3; /* Muted royal blue */
-      --aqua-blue: #00CED1; /* Dark turquoise */
+      --royal-blue-light: #5a78d3;
+      --aqua-blue: #00CED1;
       --card-padding: 20px;
       --card-gap: 25px;
       --gold-aqua: linear-gradient(90deg, #FFD700, #00CED1);
       --gold-aqua-reverse: linear-gradient(90deg, #00CED1, #FFD700);
-      --sun-color: #FFC107; /* Only bright color for future links */
+      --sun-color: #FFC107;
       --sun-glow: #FFA000;
       --sun-ray-color: #FFD700;
       --top-header-height: 70px;
       --top-header-height-sm: 140px;
-      --digital-purple: #4a148c; /* Dark purple */
+      --digital-purple: #4a148c;
       --header-gradient: linear-gradient(135deg, var(--darker), var(--aqua-blue));
     }
     
@@ -124,9 +124,10 @@
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
-      color: var(--digital-purple);
+      color: var(--light); /* Pure white for better contrast */
       margin-bottom: 25px;
       text-shadow: 0 0 5px rgba(74, 20, 140, 0.3);
+      font-weight: 700; /* Added bold for better contrast */
     }
     
     section h3 {
@@ -357,9 +358,10 @@
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
-      color: var(--primary);
+      color: var(--light);
       margin-bottom: 25px;
       text-shadow: 0 0 5px rgba(42, 91, 156, 0.3);
+      font-weight: 700;
     }
     
     section h3 {
@@ -409,6 +411,16 @@
       font-size: 1.2rem;
     }
     
+    .featured-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3);
+      margin: 30px 0;
+      display: block;
+      border: 2px solid var(--digital-purple);
+    }
+    
     .image-placeholder {
       background: rgba(42, 91, 156, 0.1);
       border: 2px dashed var(--primary);
@@ -428,6 +440,31 @@
       color: var(--lighter-accent);
     }
     
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -440,6 +477,10 @@
       
       main {
         grid-template-columns: 1fr;
+      }
+      
+      .featured-image {
+        max-width: 100%;
       }
     }
   </style>
@@ -523,6 +564,9 @@
       
       <p>In an era of information abundance, academic literacy necessarily includes the ability to navigate, evaluate, and utilize vast amounts of information effectively. This encompasses understanding how knowledge is organized within disciplines, recognizing credible sources, and developing strategies for efficient information retrieval and management.</p>
       
+      <!-- Added the image here -->
+      <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/1757881764.png?raw=true" alt="Academic Literacy Concept" class="featured-image">
+      
       <div class="card-footer">
         <p>By embracing inclusive academic literacy approaches, we can create more equitable and effective learning environments that prepare students not only for academic success but also for meaningful participation in democratic society and global citizenship.</p>
       </div>
@@ -539,7 +583,40 @@
       <li><a href="#future">Future Directions</a></li>
     </ul>
   </nav>
+  
+  <footer>
+    <div class="footer-content">
+      <p>© Dr Oscar Eybers, 2025</p>
+      <div class="footer-links">
+        <a href="#top" class="top-link">Top</a>
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="home-link">Home</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Top link functionality
+    document.querySelector('.top-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>
-
-
