@@ -23,7 +23,7 @@
       --accent: #005f9b;
       --dark: #0a0a14;
       --darker: #050508;
-      --light: #ffffff; /* Changed to pure white for better contrast */
+      --light: #ffffff;
       --card-bg: rgba(20, 20, 30, 0.8);
       --lighter-accent: #4a90e2;
       --royal-blue: #4169E1;
@@ -31,13 +31,6 @@
       --aqua-blue: #00CED1;
       --card-padding: 20px;
       --card-gap: 25px;
-      --gold-aqua: linear-gradient(90deg, #FFD700, #00CED1);
-      --gold-aqua-reverse: linear-gradient(90deg, #00CED1, #FFD700);
-      --sun-color: #FFC107;
-      --sun-glow: #FFA000;
-      --sun-ray-color: #FFD700;
-      --top-header-height: 70px;
-      --top-header-height-sm: 140px;
       --digital-purple: #4a148c;
       --header-gradient: linear-gradient(135deg, var(--darker), var(--aqua-blue));
     }
@@ -97,6 +90,9 @@
       box-shadow: 0 0 20px rgba(74, 20, 140, 0.1);
       transition: all 0.3s ease;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
     section::before {
@@ -124,10 +120,10 @@
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
-      color: var(--light); /* Pure white for better contrast */
+      color: var(--light);
       margin-bottom: 25px;
       text-shadow: 0 0 5px rgba(74, 20, 140, 0.3);
-      font-weight: 700; /* Added bold for better contrast */
+      font-weight: 700;
     }
     
     section h3 {
@@ -331,6 +327,9 @@
       box-shadow: 0 0 20px rgba(74, 20, 140, 0.1);
       transition: all 0.3s ease;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
     section::before {
@@ -358,7 +357,7 @@
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
-      color: var(--light);
+      color: var(--primary);
       margin-bottom: 25px;
       text-shadow: 0 0 5px rgba(42, 91, 156, 0.3);
       font-weight: 700;
@@ -411,25 +410,32 @@
       font-size: 1.2rem;
     }
     
-    .featured-image {
-      width: 100%;
-      max-width: 600px;
+    .card-image {
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
+      margin: 20px 0;
       box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3);
-      margin: 30px 0;
-      display: block;
-      border: 2px solid var(--digital-purple);
+      transition: all 0.3s ease;
     }
     
-    .image-placeholder {
-      background: rgba(42, 91, 156, 0.1);
-      border: 2px dashed var(--primary);
+    .card-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(74, 20, 140, 0.5);
+    }
+    
+    .small-image {
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
-      padding: 40px;
-      text-align: center;
-      margin: 30px 0;
-      color: var(--primary);
-      font-style: italic;
+      margin: 20px 0;
+      box-shadow: 0 3px 10px rgba(74, 20, 140, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .small-image:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3);
     }
     
     footer {
@@ -478,10 +484,6 @@
       main {
         grid-template-columns: 1fr;
       }
-      
-      .featured-image {
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -521,6 +523,8 @@
           <p>Recognizing how academic literacy permeates all faculties, schools, and disciplines, and how it shapes students' ability to demonstrate proficiency in disciplinary epistemologies.</p>
         </div>
       </div>
+      
+      <img src="https://www.innov8africa.org/wp-content/uploads/2019/11/boys-with-desktop-copy.jpg" alt="Students using computers" class="card-image">
       
       <div class="card-footer">
         <p>Academic literacy is essential for success in higher education and beyond, requiring students to navigate diverse modes of communication and critically evaluate information from multiple sources.</p>
@@ -564,8 +568,7 @@
       
       <p>In an era of information abundance, academic literacy necessarily includes the ability to navigate, evaluate, and utilize vast amounts of information effectively. This encompasses understanding how knowledge is organized within disciplines, recognizing credible sources, and developing strategies for efficient information retrieval and management.</p>
       
-      <!-- Added the image here -->
-      <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/1757881764.png?raw=true" alt="Academic Literacy Concept" class="featured-image">
+      <img src="https://www.innov8africa.org/wp-content/uploads/2019/12/computer-lab.jpg" alt="Computer lab with students" class="small-image">
       
       <div class="card-footer">
         <p>By embracing inclusive academic literacy approaches, we can create more equitable and effective learning environments that prepare students not only for academic success but also for meaningful participation in democratic society and global citizenship.</p>
