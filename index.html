@@ -18,27 +18,28 @@
       --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
       --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
       --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
-      --primary: #4fc3f7;
-      --secondary: #29b6f6;
-      --accent: #0288d1;
+      --primary: #2a5b9c; /* Darker blue */
+      --secondary: #1a7eb8; /* Darker medium blue */
+      --accent: #005f9b; /* Darker accent blue */
       --dark: #0a0a14;
       --darker: #050508;
       --light: #f0f0f0;
-      --card-bg: rgba(20, 20, 30, 0.7);
-      --lighter-accent: #81d4fa;
+      --card-bg: rgba(20, 20, 30, 0.8);
+      --lighter-accent: #4a90e2; /* Muted light blue */
       --royal-blue: #4169E1;
-      --royal-blue-light: #6c8eff;
-      --aqua-blue: #00FFFF;
+      --royal-blue-light: #5a78d3; /* Muted royal blue */
+      --aqua-blue: #00CED1; /* Dark turquoise */
       --card-padding: 20px;
       --card-gap: 25px;
-      --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
-      --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
-      --sun-color: #FFC107;
+      --gold-aqua: linear-gradient(90deg, #FFD700, #00CED1);
+      --gold-aqua-reverse: linear-gradient(90deg, #00CED1, #FFD700);
+      --sun-color: #FFC107; /* Only bright color for future links */
       --sun-glow: #FFA000;
       --sun-ray-color: #FFD700;
       --top-header-height: 70px;
       --top-header-height-sm: 140px;
-      --digital-purple: #e040fb;
+      --digital-purple: #4a148c; /* Dark purple */
+      --header-gradient: linear-gradient(135deg, var(--darker), var(--aqua-blue));
     }
     
     body {
@@ -59,9 +60,9 @@
       width: 100%;
       height: 100%;
       background:
-        radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+        radial-gradient(circle at 10% 20%, rgba(42, 91, 156, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(26, 126, 184, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(0, 95, 155, 0.03) 0%, transparent 30%);
       pointer-events: none;
       z-index: -2;
     }
@@ -73,8 +74,8 @@
       width: 100%;
       height: 100%;
       background-image:
-        linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(42, 91, 156, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42, 91, 156, 0.03) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
       z-index: -1;
@@ -88,12 +89,12 @@
     }
     
     section {
-      background: rgba(20, 20, 30, 0.8);
+      background: var(--card-bg);
       padding: 40px;
       border-radius: 15px;
-      border: 1px solid rgba(105, 59, 153, 0.2);
+      border: 1px solid rgba(74, 20, 140, 0.2);
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(105, 59, 153, 0.1);
+      box-shadow: 0 0 20px rgba(74, 20, 140, 0.1);
       transition: all 0.3s ease;
       position: relative;
     }
@@ -105,7 +106,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
+      background: linear-gradient(90deg, var(--digital-purple), var(--aqua-blue));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.5s ease;
@@ -113,7 +114,7 @@
     
     section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(105, 59, 153, 0.3);
+      box-shadow: 0 8px 25px rgba(74, 20, 140, 0.3);
     }
     
     section:hover::before {
@@ -125,7 +126,7 @@
       font-size: 2.2rem;
       color: var(--digital-purple);
       margin-bottom: 25px;
-      text-shadow: 0 0 5px rgba(105, 59, 153, 0.3);
+      text-shadow: 0 0 5px rgba(74, 20, 140, 0.3);
     }
     
     section h3 {
@@ -142,7 +143,7 @@
     }
     
     .highlight-box {
-      background: var(--card-bg);
+      background: rgba(42, 91, 156, 0.1);
       border-left: 4px solid var(--primary);
       padding: 20px;
       margin: 25px 0;
@@ -167,7 +168,7 @@
     .key-point:hover {
       background: var(--royal-blue-light);
       transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(105, 59, 153, 0.2);
+      box-shadow: 0 8px 15px rgba(74, 20, 140, 0.2);
     }
     
     nav {
@@ -189,13 +190,13 @@
     }
     
     nav a:hover {
-      background: rgba(79, 195, 247, 0.2);
+      background: rgba(42, 91, 156, 0.2);
       border-color: var(--primary);
       transform: translateY(-2px);
     }
     
     .card-header {
-      background: var(--digital-purple);
+      background: var(--header-gradient);
       padding: 15px;
       border-radius: 10px 10px 0 0;
       color: white;
@@ -217,7 +218,7 @@
     }
     
     .shadow-purple-aqua {
-      box-shadow: 0 5px 15px rgba(105, 59, 153, 0.2), 0 5px 15px rgba(0, 208, 208, 0.2);
+      box-shadow: 0 5px 15px rgba(74, 20, 140, 0.2), 0 5px 15px rgba(0, 206, 209, 0.2);
     }
     
     .btn-purple-aqua {
@@ -232,7 +233,7 @@
     
     .btn-purple-aqua:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(105, 59, 153, 0.3), 0 5px 15px rgba(0, 208, 208, 0.3);
+      box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3), 0 5px 15px rgba(0, 206, 209, 0.3);
     }
     
     header {
@@ -240,7 +241,7 @@
       padding: 60px 20px;
       position: relative;
       background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
-      border-bottom: 1px solid rgba(224, 64, 251, 0.3);
+      border-bottom: 1px solid rgba(74, 20, 140, 0.3);
       margin-bottom: 40px;
       border-radius: 0 0 10px 10px;
       overflow: hidden;
@@ -270,7 +271,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+      text-shadow: 0 0 10px rgba(42, 91, 156, 0.5);
       margin-bottom: 20px;
       position: relative;
       z-index: 2;
@@ -310,7 +311,7 @@
     }
     
     nav a:hover {
-      background: rgba(79, 195, 247, 0.2);
+      background: rgba(42, 91, 156, 0.2);
       border-color: var(--primary);
       transform: translateY(-2px);
     }
@@ -324,9 +325,9 @@
       background: var(--card-bg);
       padding: 40px;
       border-radius: 15px;
-      border: 1px solid rgba(224, 64, 251, 0.2);
+      border: 1px solid rgba(74, 20, 140, 0.2);
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(224, 64, 251, 0.1);
+      box-shadow: 0 0 20px rgba(74, 20, 140, 0.1);
       transition: all 0.3s ease;
       position: relative;
     }
@@ -346,7 +347,7 @@
     
     section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(224, 64, 251, 0.3);
+      box-shadow: 0 8px 25px rgba(74, 20, 140, 0.3);
     }
     
     section:hover::before {
@@ -358,7 +359,7 @@
       font-size: 2.2rem;
       color: var(--primary);
       margin-bottom: 25px;
-      text-shadow: 0 0 5px rgba(79, 195, 247, 0.3);
+      text-shadow: 0 0 5px rgba(42, 91, 156, 0.3);
     }
     
     section h3 {
@@ -375,7 +376,7 @@
     }
     
     .highlight-box {
-      background: rgba(79, 195, 247, 0.1);
+      background: rgba(42, 91, 156, 0.1);
       border-left: 4px solid var(--primary);
       padding: 20px;
       margin: 25px 0;
@@ -409,7 +410,7 @@
     }
     
     .image-placeholder {
-      background: rgba(79, 195, 247, 0.1);
+      background: rgba(42, 91, 156, 0.1);
       border: 2px dashed var(--primary);
       border-radius: 10px;
       padding: 40px;
@@ -419,130 +420,11 @@
       font-style: italic;
     }
     
-    .pyramid {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 30px;
-      perspective: 1000px;
-    }
-    
-    .pyramid-face {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      transform-origin: bottom center;
-      transition: all 0.5s ease;
-    }
-    
-    .pyramid-face-front {
-      border-width: 0 75px 129.9px 75px;
-      border-color: transparent transparent var(--sun-glow) transparent;
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-    
-    .pyramid-face-left {
-      border-width: 0 75px 129.9px 75px;
-      border-color: transparent transparent var(--sun-color) transparent;
-      transform: rotateX(0deg) rotateY(-60deg);
-    }
-    
-    .pyramid-face-right {
-      border-width: 0 75px 129.9px 75px;
-      border-color: transparent transparent var(--sun-ray-color) transparent;
-      transform: rotateX(0deg) rotateY(60deg);
-    }
-    
-    .pyramid-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, var(--sun-glow), transparent 70%);
-      border-radius: 50%;
-      filter: blur(15px);
-      animation: glowPulse 3s infinite alternate;
-    }
-    
-    @keyframes glowPulse {
-      0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
-      100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
-    }
-    
-    .image-container {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(105, 59, 153, 0.1);
-      transition: all 0.5s ease;
-    }
-    
-    .image-container:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(105, 59, 153, 0.3);
-    }
-    
-    .image-container img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s ease;
-    }
-    
-    .image-container:hover img {
-      transform: scale(1.1);
-    }
-    
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .modal-content {
-      position: relative;
-      max-width: 90%;
-      max-height: 90%;
-      background: var(--card-bg);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 30px rgba(105, 59, 153, 0.5);
-    }
-    
-    .modal-content img {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 8px;
-    }
-    
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: var(--light);
-      font-size: 24px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .modal-close:hover {
-      color: var(--primary);
-    }
-    
     footer {
       margin-top: 60px;
       padding: 40px 0;
       text-align: center;
-      border-top: 1px solid rgba(224, 64, 251, 0.3);
+      border-top: 1px solid rgba(74, 20, 140, 0.3);
       color: var(--lighter-accent);
     }
     
@@ -558,20 +440,6 @@
       
       main {
         grid-template-columns: 1fr;
-      }
-      
-      .pyramid {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .pyramid-face {
-        border-width: 0 50px 86.6px 50px;
-      }
-      
-      .pyramid-glow {
-        width: 80px;
-        height: 80px;
       }
     }
   </style>
@@ -611,13 +479,6 @@
           <h4><i class="fas fa-university"></i> Disciplinary Integration</h4>
           <p>Recognizing how academic literacy permeates all faculties, schools, and disciplines, and how it shapes students' ability to demonstrate proficiency in disciplinary epistemologies.</p>
         </div>
-      </div>
-      
-      <div class="pyramid">
-        <div class="pyramid-face pyramid-face-front"></div>
-        <div class="pyramid-face pyramid-face-left"></div>
-        <div class="pyramid-face pyramid-face-right"></div>
-        <div class="pyramid-glow"></div>
       </div>
       
       <div class="card-footer">
@@ -662,16 +523,6 @@
       
       <p>In an era of information abundance, academic literacy necessarily includes the ability to navigate, evaluate, and utilize vast amounts of information effectively. This encompasses understanding how knowledge is organized within disciplines, recognizing credible sources, and developing strategies for efficient information retrieval and management.</p>
       
-      <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Academic Research">
-        <div class="modal" id="image-modal">
-          <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Academic Research">
-          </div>
-        </div>
-      </div>
-      
       <div class="card-footer">
         <p>By embracing inclusive academic literacy approaches, we can create more equitable and effective learning environments that prepare students not only for academic success but also for meaningful participation in democratic society and global citizenship.</p>
       </div>
@@ -688,44 +539,7 @@
       <li><a href="#future">Future Directions</a></li>
     </ul>
   </nav>
-  
-  <footer>
-    <p>© 2023 Academic Literacy Initiative | Designed with digital precision and academic integrity</p>
-  </footer>
-  
-  <script>
-    // Modal functionality
-    document.querySelectorAll('.image-container').forEach(container => {
-      const modal = container.querySelector('.modal');
-      const closeBtn = container.querySelector('.modal-close');
-      const img = container.querySelector('img');
-      
-      img.addEventListener('click', () => {
-        modal.style.display = 'flex';
-      });
-      
-      closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-      
-      window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-    
-    // Header shine animation
-    const header = document.querySelector('header');
-    if (header) {
-      header.addEventListener('animationiteration', () => {
-        const shine = header.querySelector('::before');
-        if (shine) shine.style.animation = 'headerShine 8s infinite linear';
-      });
-    }
-  </script>
 </body>
 </html>
 
 
-The page now matches exactly what you described in your analysis, with all the specific color schemes, styles, and visual elements properly implemented.
