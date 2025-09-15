@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +40,11 @@
     
     :root {
       --primary: #800080;
-      --secondary: #1a7eb8;
+      --secondary: #00008B;
       --accent: #005f9b;
       --dark: #050508;
       --darker: #000000;
-      --light: #ffffff;
+      --light: #000000;
       --card-bg: rgba(20, 20, 30, 0.8);
       --lighter-accent: #4a90e2;
       --royal-blue: #4169E1;
@@ -52,7 +53,9 @@
       --card-padding: 20px;
       --card-gap: 25px;
       --digital-purple: #800080;
-      --header-gradient: linear-gradient(135deg, var(--digital-purple), var(--aqua-blue));
+      --header-gradient: linear-gradient(135deg, var(--digital-purple), var(--secondary));
+      --glow-purple: rgba(128, 0, 128, 0.7);
+      --glow-blue: rgba(0, 0, 139, 0.7);
     }
     
     body {
@@ -74,7 +77,7 @@
       height: 100%;
       background:
         radial-gradient(circle at 10% 20%, rgba(128, 0, 128, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(26, 126, 184, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 0, 139, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 50% 50%, rgba(0, 95, 155, 0.03) 0%, transparent 30%);
       pointer-events: none;
       z-index: -2;
@@ -204,6 +207,9 @@
       border-radius: 5px;
       transition: all 0.3s ease;
       border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     }
     
     nav a:hover {
@@ -212,11 +218,20 @@
       transform: translateY(-2px);
     }
     
+    .nav-link-glow {
+      box-shadow: 0 0 10px var(--glow-purple), 0 0 20px var(--glow-blue);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .nav-link-glow:hover {
+      box-shadow: 0 0 15px var(--glow-purple), 0 0 30px var(--glow-blue);
+    }
+    
     .card-header {
       background: var(--header-gradient);
       padding: 15px;
       border-radius: 10px 10px 0 0;
-      color: white;
+      color: var(--light);
       margin-bottom: 20px;
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
@@ -225,7 +240,7 @@
       background: var(--aqua-blue);
       padding: 15px;
       border-radius: 0 0 10px 10px;
-      color: white;
+      color: var(--light);
       margin-top: 20px;
       text-align: center;
     }
@@ -241,17 +256,18 @@
     
     .btn-purple-aqua {
       background: var(--digital-purple);
-      color: white;
+      color: var(--light);
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
+      box-shadow: 0 0 5px var(--glow-purple);
     }
     
     .btn-purple-aqua:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(128, 0, 128, 0.3), 0 5px 15px rgba(0, 206, 209, 0.3);
+      box-shadow: 0 0 15px var(--glow-purple), 0 0 25px var(--glow-blue);
     }
     
     header {
@@ -526,11 +542,15 @@
       transition: all 0.3s ease;
       font-weight: 500;
       font-size: 14px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px var(--glow-purple);
     }
     
     .footer-links a:hover {
       color: var(--primary);
       text-decoration: underline;
+      box-shadow: 0 0 15px var(--glow-purple), 0 0 25px var(--glow-blue);
     }
     
     @media (max-width: 768px) {
@@ -561,10 +581,11 @@
     <p class="subtitle">Understanding the Ontological Framework of Scholarly Engagement</p>
     <nav>
       <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#inclusive-approaches">Inclusive Frameworks</a></li>
-        <li><a href="#components">Key Components</a></li>
-        <li><a href="#multimodal">Multimodal Literacy</a></li>
+        <li><a href="https://oeybers-cpu.github.io/a_lit_models/" target="_blank" class="nav-link-glow">Home</a></li>
+        <li><a href="#introduction" class="nav-link-glow">Introduction</a></li>
+        <li><a href="#inclusive-approaches" class="nav-link-glow">Inclusive Frameworks</a></li>
+        <li><a href="#components" class="nav-link-glow">Key Components</a></li>
+        <li><a href="#multimodal" class="nav-link-glow">Multimodal Literacy</a></li>
       </ul>
     </nav>
   </header>
@@ -726,7 +747,7 @@
       <p>© Dr Oscar Eybers, 2025</p>
       <div class="footer-links">
         <a href="#top" class="top-link">Top</a>
-        <a href="https://oeybers-cpu.github.io/a_lit_models/" target="_blank">Home</a>
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" target="_blank" class="footer-links-glow">Home</a>
       </div>
     </div>
   </footer>
@@ -788,3 +809,4 @@
   </script>
 </body>
 </html>
+```
