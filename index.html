@@ -362,6 +362,7 @@
                 transparent);
             animation: headerShine 8s infinite linear;
             z-index: -1;
+            display: none; /* Disabled due to performance issues */
         }
         @keyframes headerShine {
             0% { left: -100%; }
@@ -931,6 +932,7 @@
             font-weight: bold;
             transition: 0.3s;
             cursor: pointer;
+            z-index: 10001;
         }
         .close-modal:hover,
         .close-modal:focus {
@@ -1201,6 +1203,7 @@
         // Store the previous page URL and scroll position
         let previousPage = document.referrer;
         let scrollPosition = 0;
+        
         // Ensure DOM is fully loaded before attaching event handlers
         document.addEventListener('DOMContentLoaded', function() {
             // Dropdown functionality
@@ -1219,51 +1222,41 @@
                     dropdown.classList.toggle('active');
                 });
             });
+            
             // Close dropdowns when clicking outside
             document.addEventListener('click', function() {
                 dropdowns.forEach(dropdown => {
                     dropdown.classList.remove('active');
                 });
             });
+            
             // Store scroll position when user scrolls
             window.addEventListener('scroll', function() {
                 scrollPosition = window.scrollY;
                 // Store in sessionStorage for persistence
                 sessionStorage.setItem('scrollPosition', scrollPosition);
             });
+            
             // Back button functionality - IMPROVED FOR MOBILE
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // Check if we have a valid previous page
-                    if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
-                        // Store the current scroll position before navigating back
-                        sessionStorage.setItem('scrollPosition', window.scrollY);
-                        sessionStorage.setItem('navigatedBack', 'true');
-                        // Navigate back to the previous page
-                        window.location.href = previousPage;
-                    } else if (history.length > 1) {
+                    
+                    // Check if we have a valid previous page in history
+                    if (history.length > 1) {
                         // Use browser history if available
                         history.back();
+                    } else if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
+                        // Navigate to the previous page if we have the referrer
+                        window.location.href = previousPage;
                     } else {
                         // Fallback to home page
                         window.location.href = '/';
                     }
                 });
             }
-            // Check if we need to restore scroll position (when returning to this page)
-            if (sessionStorage.getItem('navigatedBack') === 'true') {
-                const savedPosition = sessionStorage.getItem('scrollPosition');
-                if (savedPosition) {
-                    // Small delay to ensure page is fully rendered
-                    setTimeout(() => {
-                        window.scrollTo(0, parseInt(savedPosition));
-                    }, 100);
-                }
-                // Clear the flag
-                sessionStorage.removeItem('navigatedBack');
-            }
+            
             // Top link functionality
             const topLink = document.getElementById('topLink');
             if (topLink) {
@@ -1275,23 +1268,28 @@
                     });
                 });
             }
+            
             // Handle orientation changes
             window.addEventListener('orientationchange', function() {
                 setTimeout(function() {
-                    window.location.reload();
+                    window.scrollTo(0, 0);
                 }, 300);
             });
+            
             // Image Modal Functionality
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("caption");
+            
             // Get all images with class "card__image"
             const images = document.querySelectorAll('.card__image');
+            
             // Add click event to each image
             images.forEach(function(image) {
                 image.addEventListener('click', function() {
                     modal.style.display = "block";
                     modalImg.src = this.src;
+                    
                     // Get caption from next element with class "card__image-caption"
                     const caption = this.nextElementSibling;
                     if (caption && caption.classList.contains('card__image-caption')) {
@@ -1301,24 +1299,29 @@
                     }
                 });
             });
+            
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close-modal")[0];
+            
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() { 
               modal.style.display = "none";
             }
+            
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
               }
             }
+            
             // Mobile-specific optimizations
             if ('ontouchstart' in window) {
                 // Increase touch target sizes for mobile
                 document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab').forEach(el => {
                     el.style.padding = '12px 15px';
                 });
+                
                 // Prevent zoom on double-tap for interactive elements
                 document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab, .card__image').forEach(el => {
                     el.style.touchAction = 'manipulation';
