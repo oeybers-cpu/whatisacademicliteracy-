@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is academic literacy?</title>
     <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
-    <meta name="keywords" content="Multimodal academic literacy, ubuntu philosophy in literacy, educational theory and literacy, multiliteracies, disciplinary academic literacy, ubuntu philosophy, educational theory, linguistics, language and identity">
+    <meta name="keywords" content="Multimodal academic literacy, ubuntu philosophy in literacy, educational theory and literacy, multiliteracies, multimodal academic literacy, disciplinary academic literacy, ubunty philosophy, educational theory, linguistics, language and identity">
     <meta name="author" content="Dr Oscar Eybers">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Exo+2:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <style>
         /* All existing CSS remains the same */
         * {
@@ -141,10 +141,10 @@
             border-bottom: 15px solid rgba(255, 215, 0, 0.4);
         }
         @keyframes pyramidGlow {
-            0% {
+            0% { 
                 filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
             }
-            100% {
+            100% { 
                 filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
             }
         }
@@ -490,7 +490,7 @@
             line-height: 1.6;
             font-weight: 500;
         }
-        /* Card Styles - **FIXED FOR SYMMETRY** */
+        /* Card Styles */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -508,18 +508,8 @@
             box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
             position: relative;
             overflow: hidden;
-            /* **SYMMETRY FIX: Set fixed height and manage content overflow** */
-            height: 550px; /* Fixed height for symmetry on desktop */
-            min-height: 400px;
-            max-height: 550px;
-        }
-        .card__content {
-            flex-grow: 1;
-            overflow-y: auto; /* Allow scrolling within the content if it exceeds the fixed height */
-            padding-right: 5px; /* Space for a scrollbar if needed */
-        }
-        .card__content p {
-            margin-bottom: 10px;
+            height: 100%;
+            min-height: 500px;
         }
         .card::before {
             content: '';
@@ -553,7 +543,7 @@
             gap: 8px;
         }
         .card__body {
-            /* Now uses flex-grow: 1 on .card__content */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -611,8 +601,7 @@
             border-radius: 0 0 8px 8px;
             font-size: 0.8rem;
             color: var(--lighter-accent);
-            margin-top: auto; /* Push to bottom */
-            flex-shrink: 0;
+            margin-top: 12px;
         }
         .content-section {
             margin-bottom: 30px;
@@ -643,10 +632,6 @@
         .centered-card > .card {
             max-width: 700px;
             width: 100%;
-            /* Reset height for centered (contact) card if different */
-            height: auto;
-            min-height: auto;
-            max-height: none;
         }
         #freeCounter {
             text-align: center;
@@ -699,16 +684,6 @@
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
-            }
-            .card {
-                /* Reset fixed height when they stack vertically */
-                height: auto;
-                min-height: 500px;
-                max-height: none;
-            }
-            .card__content {
-                overflow-y: visible;
-                padding-right: 0;
             }
         }
         @media (max-width: 900px) {
@@ -993,263 +968,376 @@
         }
         /* Specific styling for glowing text in contact card */
         .glowing-text {
-            color: #00ffff; /* Bright */
-            text-shadow: 0 0 8px #00ffff;
+            color: #00ffff; /* Bright cyan */
+            text-shadow: 
+                0 0 5px #00ffff,
+                0 0 10px #00ffff,
+                0 0 15px #00ffff,
+                0 0 20px #00ffff,
+                0 0 25px #00ffff;
+            font-weight: bold;
+            padding: 0 2px;
         }
     </style>
 </head>
 <body>
     <div class="grid-lines"></div>
-
+    <!-- Top header with title and pyramids -->
     <div class="top-header">
         <div class="header-title-container">
             <div class="pyramid"></div>
             <h1>What is academic literacy?</h1>
-            <div class="pyramid" style="transform: scaleX(-1);"></div>
+            <div class="pyramid"></div>
         </div>
         <div class="eybers-header-links">
-            <a href="#definition" class="eybers-link">Definition</a>
-            <a href="#models" class="eybers-link">Models</a>
-            <a href="#applications" class="eybers-link">Applications</a>
-            <a href="#decolonial" class="eybers-link">Decolonial</a>
+            <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-link">Eybers Articles</a>
+            <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
         </div>
     </div>
-
+    <!-- Container for left tabs (back and contact) -->
     <div class="left-tabs-container">
-        <a href="index.html" class="back-button-tab" aria-label="Go back to Home">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back</span>
+        <a href="#" class="back-button-tab" id="backButton" style="padding: 12px 15px; touch-action: manipulation;">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
         </a>
-        <a href="#contact-card" class="contact-button-tab" aria-label="Contact the Author">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
+        <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton" style="padding: 12px 15px; touch-action: manipulation;">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
         </a>
     </div>
-
     <div class="main-container">
-
-        <nav class="top-nav">
+       <!-- Top Navigation Links -->
+        <div class="top-nav">
+            <!-- Dropdown 1: Foundational Models & Theories -->
             <div class="dropdown">
-                <div class="dropdown-toggle" id="dropdownToggle1">
-                    Academic Literacy <i class="fas fa-chevron-down dropdown-icon"></i>
+                <div class="dropdown-toggle" style="padding: 12px 15px; touch-action: manipulation;">
+                    Foundational Models &amp; Theories <i class="fas fa-chevron-down dropdown-icon"></i>
                 </div>
-                <ul class="dropdown-menu" aria-labelledby="dropdownToggle1">
-                    <li><a href="#definition">Core Definition & Practice</a></li>
-                    <li><a href="#models">The Three Models (AL, AS, NE)</a></li>
-                    <li><a href="#applications">Real-World Applications</a></li>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea &amp; Street's model)</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
                 </ul>
             </div>
+            <!-- Dropdown 2: Indigenous & Cultural Perspectives -->
             <div class="dropdown">
-                <div class="dropdown-toggle" id="dropdownToggle2">
-                    Multimodality & New Literacies <i class="fas fa-chevron-down dropdown-icon"></i>
+                <div class="dropdown-toggle" style="padding: 12px 15px; touch-action: manipulation;">
+                    Indigenous &amp; Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
                 </div>
-                <ul class="dropdown-menu" aria-labelledby="dropdownToggle2">
-                    <li><a href="#multimodality">Multimodal Academic Literacy</a></li>
-                    <li><a href="#digital">Digital & Critical Literacies</a></li>
-                    <li><a href="#linguistics">Linguistics and Language</a></li>
+                <ul class="dropdown-menu">
+                    <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
+                    <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&amp;_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il_kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
                 </ul>
             </div>
-            <div class="dropdown">
-                <div class="dropdown-toggle" id="dropdownToggle3">
-                    Decolonial & Ubuntu <i class="fas fa-chevron-down dropdown-icon"></i>
-                </div>
-                <ul class="dropdown-menu" aria-labelledby="dropdownToggle3">
-                    <li><a href="#decolonial">Decolonial Insights</a></li>
-                    <li><a href="#ubuntu">Ubuntu Philosophy</a></li>
-                    <li><a href="#identity">Literacy, Identity & Power</a></li>
-                </ul>
-            </div>
-        </nav>
-
+            <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
+<div class="dropdown">
+    <div class="dropdown-toggle">
+        Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
+    </div>
+    <ul class="dropdown-menu">
+        <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
+        <li><a href="https://oeybers-cpu.github.io/knowledge_structures/" target="_blank">Bernstein's Knowledge Structures</a></li>
+        <li><a href="https://oeybers-cpu.github.io/whatisacademicliteracy-/" target="_blank">Academic literacy as ontology</a></li>
+    </ul>
+</div>
+        </div>
         <header>
+            <!-- Digital Sun -->
             <div class="sun-container">
-                <div class="sun-rays"></div>
                 <div class="sun-core"></div>
+                <div class="sun-rays"></div>
             </div>
             <div class="header-content">
-                </div>
+              <div class="contact-card">
+    <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
+    <p>"Academic literacy is not merely a set of transferable skills, but an</p>
+    <p class="glowing-text">ontological mode of being</p>
+    <p> wherein individuals enact epistemic identities through situated practices that shape how knowledge is constituted, legitimised, and communicated within disciplinary communities."</p>
+</div>
         </header>
-
-        <section class="articles-container">
-
-            <article class="card" id="definition">
-                <div class="card__header">
-                    <h3 class="card__title"><i class="fas fa-book-reader"></i> Core Definition & Practice</h3>
-                </div>
-                <div class="card__content">
-                    <img src="https://via.placeholder.com/600x200?text=Academic+Literacy+Graphic" alt="Conceptual graphic of academic literacy" class="card__image">
-                    <div class="card__body">
-                        <p>Academic Literacy (AL) is not just about reading and writing; it’s about mastering the **social and discourse practices** specific to higher education.</p>
-                        <p>It encompasses comprehension, composition, and the critical engagement with academic knowledge structures. Fundamentally, it's about navigating the <strong style="color: var(--primary);">"rules of the game"</strong> in university contexts, often implicitly.</p>
-                        <div class="card__quote">
-                            <i class="fas fa-quote-left"></i>
-                            AL is the ability to engage with, interpret, and produce texts within the constraints and conventions of disciplinary communities.
-                        </div>
-                        <p class="card__image-caption">Image: Representation of a student critically engaging with a research paper.</p>
+        <div class="content-section">
+            <h2 class="section-title">Theoretical Frameworks</h2>
+            <div class="articles-container">
+                <!-- Card 1: Foundational Models & Theories -->
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-chart-bar" aria-hidden="true"></i> Academic literacy is an ontology
+                        </h2>
                     </div>
-                </div>
-                <div class="card__footer">
-                    Focus: Comprehension, Critical Thinking, Discourse Mastery.
-                </div>
-            </article>
-
-            <article class="card" id="models">
-                <div class="card__header">
-                    <h3 class="card__title"><i class="fas fa-project-diagram"></i> The Three Models (AL, AS, NE)</h3>
-                </div>
-                <div class="card__content">
-                    <img src="https://via.placeholder.com/600x200?text=Three+Literacy+Models" alt="Diagram of three literacy models" class="card__image">
                     <div class="card__body">
-                        <p>Barton and Hamilton's frameworks distinguish between three main models:</p>
-                        <ol style="margin-left: 20px; padding: 0;">
-                            <li><strong>Academic Literacy (AL):</strong> Focuses on disciplinary conventions and academic language.</li>
-                            <li><strong>Academic Skills (AS):</strong> Treats literacy as general, transferable skills (e.g., summarizing, note-taking).</li>
-                            <li><strong>New Literacies (NE):</strong> Acknowledges literacy as socially situated practices (the most dominant modern view).</li>
-                        </ol>
-                        <div class="card__quote">
-                            <i class="fas fa-quote-left"></i>
-                            The shift from the 'skills' model to the 'social practices' model revolutionized educational theory and practice.
+                        <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/complat1.png?raw=true" alt="Three models of academic literacy showing different approaches to understanding literacy practices" class="card__image" style="touch-action: manipulation;">
+                        <div class="card__image-caption">Click to view larger version</div>
+                        <p>Academic literacy is an ontology: a fundamental way of being in the world that shapes how knowledge is constituted, experienced, and legitimised. This ontology is inseparable from epistemology—the theory of what counts as valid knowledge—because to be academically literate is to inhabit specific regimes of truth. The skills model assumes knowledge is transferable and neutral; the socialisation model treats it as assimilable norms; both obscure the power-laden epistemologies embedded in disciplinary practices. Only the literacies perspective reveals that literacy is not learned but enacted through ontological positioning within epistemic communities. Thus, academic literacy is neither skill nor habit—it is an epistemologically grounded mode of existence.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> Academic writing is never merely about skills or socialisation; it always involves questions of power, identity, and access to knowledge communities.
+                        </blockquote>
+                        <div class="card__meta">
+                            <span class="tag">Ontology</span>
+                            <span class="tag">Epistemology</span>
+                            <span class="tag">Power</span>
                         </div>
-                        <p>Understanding these models helps educators tailor their support to move beyond basic skill deficits toward deeper **sociocultural engagement**.</p>
-                        <p class="card__image-caption">Image: The relationship between the three different literacy models.</p>
                     </div>
+                    <footer class="card__footer">
+                        Understanding foundational perspectives on academic literacy
+                    </footer>
                 </div>
-                <div class="card__footer">
-                    Focus: Theoretical Framework, Pedagogical Approaches, Sociocultural Context.
-                </div>
-            </article>
-
-            <article class="card" id="multimodality">
-                <div class="card__header">
-                    <h3 class="card__title"><i class="fas fa-cube"></i> Multimodality & Digital Literacy</h3>
-                </div>
-                <div class="card__content">
-                    <img src="https://via.placeholder.com/600x200?text=Multimodal+Design+Principles" alt="Image showing different communication modes" class="card__image">
+                <!-- Card 2: Indigenous & Cultural Perspectives -->
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-book-open" aria-hidden="true"></i> Academic Literacy is socially-situataed
+                        </h2>
+                    </div>
                     <div class="card__body">
-                        <p>In the digital age, academic literacy must extend to **multimodality**—the use of multiple communication modes (visual, audio, spatial, gestural, linguistic) to create meaning.</p>
-                        <p>A multimodal academic task might involve creating a video essay, designing an infographic research summary, or producing a digital narrative.</p>
-                        <div class="card__quote">
-                            <i class="fas fa-quote-left"></i>
-                            "Meaning is made by the interplay of different modes, not just language." - The New London Group.
+                        <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/complat2.png?raw=true" alt="Academic literacies model showing social practice framework" class="card__image" style="touch-action: manipulation;">
+                        <div class="card__image-caption">Click to view larger version</div>
+                        <p>Academic literacy as an ontology affirms that knowing is culturally situated, relational, and often non-linear—rooted in lived experience rather than abstract individualism. This ontology directly challenges Western epistemologies that privilege objectivity, linearity, and textual authority as universal standards. Indigenous epistemologies, for instance, ground knowledge in land, community, and oral tradition, demanding an ontological shift from individual cognition to collective becoming. To recognise these perspectives is not to diversify content, but to expand the very epistemological boundaries of what counts as scholarly knowledge. Academic literacy, therefore, must be redefined as an inclusive ontology that validates multiple, coexisting epistemologies.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy practices are diverse, contested, and situated within specific social contexts that shape how knowledge is constructed and communicated.
+                        </blockquote>
+                        <div class="card__meta">
+                            <span class="tag">Social Practice</span>
+                            <span class="tag">Epistemology</span>
+                            <span class="tag">Identity</span>
                         </div>
-                        <p>Digital literacy includes the ability to critically evaluate online sources, understand digital ethics, and navigate information ecosystems effectively. This is crucial for **21st-century academic success**.</p>
-                        <p class="card__image-caption">Image: Representation of various communication modes converging.</p>
                     </div>
+                    <footer class="card__footer">
+                        Academic literacy as dynamic, context-dependent practice
+                    </footer>
                 </div>
-                <div class="card__footer">
-                    Focus: New Media, Digital Ethics, Meaning-Making, Multiliteracies.
-                </div>
-            </article>
-
-            <article class="card" id="decolonial">
-                <div class="card__header">
-                    <h3 class="card__title"><i class="fas fa-gavel"></i> Decolonial Insights & Ubuntu</h3>
-                </div>
-                <div class="card__content">
-                    <img src="https://via.placeholder.com/600x200?text=African+Academics" alt="Image of a diverse group discussing academic work" class="card__image">
+                <!-- Card 3: Applications & Interdisciplinary Connections -->
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-exchange-alt" aria-hidden="true"></i> Disciplines as ways of being
+                        </h2>
+                    </div>
                     <div class="card__body">
-                        <p>A decolonial perspective challenges the **Eurocentric assumptions** embedded in traditional academic literacy frameworks. It asks: Whose knowledge and whose language are prioritized?</p>
-                        <p>The **Ubuntu philosophy** provides a powerful alternative, centering on <strong style="color: var(--aqua-blue);">"I am because we are"</strong>. Applied to literacy, it emphasizes collaborative knowledge-making, ethical relations, and community-based scholarship.</p>
-                        <p>This approach moves beyond individual mastery to focus on literacy as a communal tool for **social justice and epistemic diversity**.</p>
-                        <div class="card__quote">
-                            <i class="fas fa-quote-left"></i>
-                            Decolonial AL necessitates a rejection of the 'deficit' view of students' home literacies.
+                        <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/complat3.png?raw=true" alt="Students switching between different communication modes in classroom setting" class="card__image" style="touch-action: manipulation;">
+                        <div class="card__image-caption">Click to view larger version</div>
+                        <p>Academic literacy as an ontology means that disciplines are not merely methodological domains but distinct ways of being-with-knowledge. Each discipline's epistemology—its criteria for evidence, validity, and reasoning—shapes how its practitioners exist within their field: as analysts, interpreters, or builders of meaning. Interdisciplinary work thus becomes an act of ontological translation, requiring humility across epistemic divides. Students do not acquire new techniques; they undergo transformations in their very capacity to know. Hence, academic literacy is not about crossing boundaries—it is about reconfiguring one's ontological stance in relation to shifting epistemologies.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> Students must develop awareness of genre and mode-specific qualities when navigating academic communication contexts.
+                        </blockquote>
+                        <div class="card__meta">
+                            <span class="tag">Genre</span>
+                            <span class="tag">Mode</span>
+                            <span class="tag">Transformation</span>
                         </div>
-                        <p class="card__image-caption">Image: Ubuntu principle applied to collaborative academic work.</p>
                     </div>
+                    <footer class="card__footer">
+                        Navigating academic communication transitions
+                    </footer>
                 </div>
-                <div class="card__footer">
-                    Focus: Epistemic Justice, Social Justice, African Philosophy, Inclusivity.
-                </div>
-            </article>
-
-        </section>
-        <section class="centered-card" id="contact-card">
-            <div class="contact-card">
-                <h2><i class="fas fa-flask glowing-text"></i> Engage with the Research</h2>
-                <p>This work is based on the research of <strong class="glowing-text">Dr. Oscar Eybers</strong>. For academic collaboration, speaking engagements, or further information, please connect via email.</p>
-                <div class="eybers-footer-links">
-                    <a href="mailto:oscar.eybers@example.com" class="eybers-footer-link"><i class="fas fa-envelope"></i> Email Dr. Eybers</a>
-                    <a href="#" class="eybers-footer-link"><i class="fab fa-researchgate"></i> ResearchGate</a>
+                <!-- Card 4: Key Finding -->
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-project-diagram" aria-hidden="true"></i> Meaning, identity, and power
+                        </h2>
+                    </div>
+                    <div class="card__body">
+                        <img src="https://github.com/oeybers-cpu/whatisacademicliteracy-/blob/main/computer%20studio%20art.png?raw=true" alt="Multimodal communication showing integration of different semiotic resources" class="card__image" style="touch-action: manipulation;">
+                        <div class="card__image-caption">Click to view larger version</div>
+                        <p>Academic literacy foregrounds an ontology of meaning-making, identity, and power—not as optional dimensions, but as constitutive of all scholarly engagement. This ontology is intrinsically tied to epistemology: who gets to define truth, whose voice is validated, and what forms of reasoning are deemed legitimate. Writing, then, is never neutral technical performance but an enactment of epistemic belonging—or exclusion. Identity is formed through participation in epistemically regulated communities where authority is negotiated, not inherited. Therefore, academic literacy is not a set of skills to master, but an epistemologically charged way of being in the world.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
+                        </blockquote>
+                        <div class="card__meta">
+                            <span class="tag">Meaning</span>
+                            <span class="tag">Identity</span>
+                            <span class="tag">Power</span>
+                        </div>
+                    </div>
+                    <footer class="card__footer">
+                        Integrating multiple communication modes in academic contexts
+                    </footer>
                 </div>
             </div>
-        </section>
-
-        <div id="freeCounter">
-            <a href="https://example.com/privacy-policy">Privacy Policy</a> | <a href="https://example.com/terms">Terms of Use</a>
         </div>
-
+        <!-- Centered final card -->
+        <div class="centered-card">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">
+                        <i class="fas fa-globe-africa" aria-hidden="true"></i> Academic Literacy in Global Contexts
+                    </h2>
+                </div>
+                <div class="card__body">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWYzMHF4dW55cHZjbmZ6OHJneXRsczhpNGtiYXF2NjhtcHdpZzNociZlcD12MV9pbnRlcm5hbF9naWZfYnl_aWQmY3Q9Zw/37QUVx5Og5KB49ZnfF/giphy.gif" alt="Interconnected academic communities representing global knowledge exchange" class="card__image" style="touch-action: manipulation;">
+                    <div class="card__image-caption">Click to view larger version</div>
+                    <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
+                    <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches. This inclusivity fosters communities where varied voices contribute meaningfully to knowledge production. Ultimately, academic literacy thrives when it acknowledges and integrates the rich diversity of global knowledge traditions.</p>
+                    <!-- Embedded new image here, centered and 25% smaller -->
+                    <blockquote class="card__quote">
+                        <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is enriched when we recognise and value diverse knowledge traditions and communication practices across cultural contexts.
+                    </blockquote>
+                    <div class="card__meta">
+                        <span class="tag">Global Contexts</span>
+                        <span class="tag">Diversity</span>
+                        <span class="tag">Inclusion</span>
+                    </div>
+                </div>
+                <footer class="card__footer">
+                    Academic literacy within diverse global contexts
+                </footer>
+            </div>
+        </div>
+        <!-- Embedded Visitor Counter -->
+        <div id="freeCounter">
+            <a href="https://www.free-counters.org/">What is academic literacy?</a>
+        </div>
         <div class="copyright">
-            © 2024 Dr Oscar Eybers. All rights reserved. | Optimized for Academic & Digital Engagement.
+            <p>© 2025 Dr Oscar Eybers</p>
+            <div class="eybers-footer-links">
+                <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-footer-link">Eybers Articles</a>
+                <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-footer-link">Eybers Chapters</a>
+            </div>
+            <a href="#" id="topLink" style="display: inline-block; margin-top: 8px; color: var(--digital-purple); text-decoration: none;">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
+            </a>
         </div>
     </div>
-
+    <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Zoomed image">
+        <span class="close-modal">×</span>
+        <img class="modal-content" id="modalImage">
         <div id="caption"></div>
     </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Dropdown Toggle Logic
-            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    const dropdown = this.closest('.dropdown');
-                    const isActive = dropdown.classList.contains('active');
-
-                    // Close all other open dropdowns
-                    document.querySelectorAll('.dropdown.active').forEach(openDropdown => {
-                        if (openDropdown !== dropdown) {
-                            openDropdown.classList.remove('active');
+        // Store the previous page URL and scroll position
+        let previousPage = document.referrer;
+        let scrollPosition = 0;
+        // Ensure DOM is fully loaded before attaching event handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality - Enhanced with new code
+            document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+                toggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const parentDropdown = this.closest('.dropdown');
+                    
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                        if (dropdown !== parentDropdown) {
+                            dropdown.classList.remove('active');
                         }
                     });
-
-                    // Toggle the clicked dropdown
-                    dropdown.classList.toggle('active', !isActive);
+                    
+                    // Toggle current dropdown
+                    parentDropdown.classList.toggle('active');
                 });
             });
 
             // Close dropdowns when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!event.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+            document.addEventListener('click', function(event) {
+                document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                    if (!dropdown.contains(event.target)) {
                         dropdown.classList.remove('active');
-                    });
-                }
+                    }
+                });
             });
-
-            // Image Modal Logic
+            
+            // Store scroll position when user scrolls
+            window.addEventListener('scroll', function() {
+                scrollPosition = window.scrollY;
+                // Store in sessionStorage for persistence
+                sessionStorage.setItem('scrollPosition', scrollPosition);
+            });
+            
+            // Back button functionality - IMPROVED FOR MOBILE
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Check if we have a valid previous page in history
+                    if (history.length > 1) {
+                        // Use browser history if available
+                        history.back();
+                    } else if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
+                        // Navigate to the previous page if we have the referrer
+                        window.location.href = previousPage;
+                    } else {
+                        // Fallback to home page
+                        window.location.href = '/';
+                    }
+                });
+            }
+            
+            // Top link functionality
+            const topLink = document.getElementById('topLink');
+            if (topLink) {
+                topLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 300);
+            });
+            
+            // Image Modal Functionality
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("caption");
-            const closeBtn = document.querySelector(".close-modal");
-
-            document.querySelectorAll('.card__image').forEach(img => {
-                img.onclick = function() {
+            
+            // Get all images with class "card__image"
+            const images = document.querySelectorAll('.card__image');
+            
+            // Add click event to each image
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
                     modal.style.display = "block";
                     modalImg.src = this.src;
-                    const cardBody = this.closest('.card__body');
-                    const caption = cardBody.querySelector('.card__image-caption') || { textContent: this.alt };
-                    captionText.innerHTML = caption.textContent;
-                }
+                    // Get caption from next element with class "card__image-caption"
+                    const caption = this.nextElementSibling;
+                    if (caption && caption.classList.contains('card__image-caption')) {
+                        captionText.innerHTML = caption.innerHTML;
+                    } else {
+                        captionText.innerHTML = this.alt;
+                    }
+                });
             });
-
-            // Close modal functions
-            closeBtn.onclick = function() {
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close-modal")[0];
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
                 modal.style.display = "none";
+              }
             }
-            modal.onclick = function(event) {
-                if (event.target === modal) {
-                    modal.style.display = "none";
-                }
+            
+            // Mobile-specific optimizations
+            if ('ontouchstart' in window) {
+                // Increase touch target sizes for mobile
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab').forEach(el => {
+                    el.style.padding = '12px 15px';
+                });
+                // Prevent zoom on double-tap for interactive elements
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab, .card__image').forEach(el => {
+                    el.style.touchAction = 'manipulation';
+                });
             }
-            document.addEventListener('keydown', function(event) {
-                if (event.key === "Escape" && modal.style.display === "block") {
-                    modal.style.display = "none";
-                }
-            });
         });
     </script>
 </body>
