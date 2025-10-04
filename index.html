@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Exo+2:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <style>
+        /* All existing CSS remains the same */
         * {
             margin: 0;
             padding: 0;
@@ -1034,6 +1035,17 @@
                     <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
                 </ul>
             </div>
+            <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
+<div class="dropdown">
+    <div class="dropdown-toggle">
+        Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
+    </div>
+    <ul class="dropdown-menu">
+        <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
+        <li><a href="https://oeybers-cpu.github.io/knowledge_structures/" target="_blank">Bernstein's Knowledge Structures</a></li>
+        <li><a href="https://oeybers-cpu.github.io/whatisacademicliteracy-/" target="_blank">Academic literacy as ontology</a></li>
+    </ul>
+</div>
         </div>
         <header>
             <!-- Digital Sun -->
@@ -1042,11 +1054,12 @@
                 <div class="sun-rays"></div>
             </div>
             <div class="header-content">
-               <div class="contact-card">
+              <div class="contact-card">
     <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
-    <p>"Academic literacy is not merely a set of transferable skills but an <span class="glowing-text">ontological mode of being</span>, wherein individuals enact epistemic identities through situated practices that shape how knowledge is constituted, legitimised, and communicated within disciplinary communities.."</p>
+    <p>"Academic literacy is not merely a set of transferable skills, but an</p>
+    <p class="glowing-text">ontological mode of being</p>
+    <p> wherein individuals enact epistemic identities through situated practices that shape how knowledge is constituted, legitimised, and communicated within disciplinary communities."</p>
 </div>
-            </div>
         </header>
         <div class="content-section">
             <h2 class="section-title">Theoretical Frameworks</h2>
@@ -1158,7 +1171,7 @@
                     </h2>
                 </div>
                 <div class="card__body">
-                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWYzMHF4dW55cHZjbmZ6OHJneXRsczhpNGtiYXF2NjhtcHdpZzNociZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/37QUVx5Og5KB49ZnfF/giphy.gif" alt="Interconnected academic communities representing global knowledge exchange" class="card__image" style="touch-action: manipulation;">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWYzMHF4dW55cHZjbmZ6OHJneXRsczhpNGtiYXF2NjhtcHdpZzNociZlcD12MV9pbnRlcm5hbF9naWZfYnl_aWQmY3Q9Zw/37QUVx5Og5KB49ZnfF/giphy.gif" alt="Interconnected academic communities representing global knowledge exchange" class="card__image" style="touch-action: manipulation;">
                     <div class="card__image-caption">Click to view larger version</div>
                     <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
                     <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches. This inclusivity fosters communities where varied voices contribute meaningfully to knowledge production. Ultimately, academic literacy thrives when it acknowledges and integrates the rich diversity of global knowledge traditions.</p>
@@ -1204,34 +1217,40 @@
         let scrollPosition = 0;
         // Ensure DOM is fully loaded before attaching event handlers
         document.addEventListener('DOMContentLoaded', function() {
-            // Dropdown functionality
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                toggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
+            // Dropdown functionality - Enhanced with new code
+            document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+                toggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const parentDropdown = this.closest('.dropdown');
+                    
                     // Close other dropdowns
-                    dropdowns.forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('active');
+                    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                        if (dropdown !== parentDropdown) {
+                            dropdown.classList.remove('active');
                         }
                     });
+                    
                     // Toggle current dropdown
-                    dropdown.classList.toggle('active');
+                    parentDropdown.classList.toggle('active');
                 });
             });
+
             // Close dropdowns when clicking outside
-            document.addEventListener('click', function() {
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('active');
+            document.addEventListener('click', function(event) {
+                document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
                 });
             });
+            
             // Store scroll position when user scrolls
             window.addEventListener('scroll', function() {
                 scrollPosition = window.scrollY;
                 // Store in sessionStorage for persistence
                 sessionStorage.setItem('scrollPosition', scrollPosition);
             });
+            
             // Back button functionality - IMPROVED FOR MOBILE
             const backButton = document.getElementById('backButton');
             if (backButton) {
@@ -1250,6 +1269,7 @@
                     }
                 });
             }
+            
             // Top link functionality
             const topLink = document.getElementById('topLink');
             if (topLink) {
@@ -1261,18 +1281,22 @@
                     });
                 });
             }
+            
             // Handle orientation changes
             window.addEventListener('orientationchange', function() {
                 setTimeout(function() {
                     window.scrollTo(0, 0);
                 }, 300);
             });
+            
             // Image Modal Functionality
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("caption");
+            
             // Get all images with class "card__image"
             const images = document.querySelectorAll('.card__image');
+            
             // Add click event to each image
             images.forEach(function(image) {
                 image.addEventListener('click', function() {
@@ -1287,18 +1311,22 @@
                     }
                 });
             });
+            
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close-modal")[0];
+            
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() { 
               modal.style.display = "none";
             }
+            
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
               }
             }
+            
             // Mobile-specific optimizations
             if ('ontouchstart' in window) {
                 // Increase touch target sizes for mobile
